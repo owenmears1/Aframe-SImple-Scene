@@ -8,11 +8,46 @@
         </head>
         <body> 
             <a-scene>
-                 <a-plane color="forestgreen" position="0 0 0" rotation="-90 0 0" width="500" height="500" >
-                     </a-plane> 
-                     <a-sky color="lightskyblue" >
-                         </a-sky> 
-                        <a-mixin
+              <a-assets>
+                <img id="grass-base" src="assets/Grass_001_COLOR.jpg">
+                <img id="grass-normal" src="assets/Grass_001_NORM.jpg">
+                <img id="grass-ambient-occlusion" src="assets/Grass_001_OCC.jpg">
+                <img id="sky" src="assets/Sky.jpg">
+                <a-asset-item
+           id="chair"
+           src="assets\chair.glb">
+          </a-asset-item>  
+          <a-asset-item
+            id="lamp"
+            src="assets\lamp.glb">
+          </a-asset-item>
+            </a-assets>
+            <a-entity
+            gltf-model="#lamp"
+            position=" 2 0 -8"
+            scale="0.25 0.25 0.25">
+          </a-entity>
+             <a-entity
+            gltf-model="#chair"
+            position="0 0 -8"
+            rotation="0 45 0"
+            scale="0.15 0.15 0.15">
+          </a-entity>
+             
+          
+          <a-plane
+                material="src: #grass-base;
+                          repeat: 500 500;
+                          normalMap: #grass-normal;
+                          normalTextureRepeat: 500 500;
+                          ambientOcclusionMap: #grass-ambient-occlusion;
+                          ambientOcclusionTextureRepeat: 500 500"
+                position="0 0 -8"rotation="-90 0 0"width="500"height="500">
+              </a-plane>
+            <a-sky 
+              src="#sky">
+            </a-sky>
+                  <a-mixin
                         id="wallcolor"
                         color="lightsteelblue">
                   </a-mixin>
@@ -139,5 +174,5 @@ mixin="sphericaltreeleaves"
 position="8 2 -6">
 </a-sphere>
 </a-scene>
-                    </body>
+</body>
                     </html>
